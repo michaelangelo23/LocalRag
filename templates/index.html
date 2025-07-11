@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoomAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-layout">
+        <div class="chat-column">
+            <div class="container">
+                <header>
+                    <h1>DoomAI</h1>
+                    <div class="controls-area">
+                        <div class="upload-section">
+                            <label for="pdf-upload" class="sr-only">Upload Document</label>
+                            <input type="file" id="pdf-upload" accept=".pdf,.txt,.md,.docx,.xlsx">
+                            <button id="upload-btn" class="control-btn" title="Upload Document"><i class="fas fa-upload"></i></button>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="stop-btn" class="control-btn" disabled title="Stop Generation"><i class="fas fa-stop"></i></button>
+                            <button id="clear-chat-btn" class="control-btn" title="Clear Chat"><i class="fas fa-comment-slash"></i></button>
+                            <button id="clear-kb-btn" class="control-btn" title="Clear Knowledge Base"><i class="fas fa-database"></i></button>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="chat-window" id="chat-window">
+                </main>
+
+                <div class="input-area">
+                    <label for="user-input" class="sr-only">Type your message</label>
+                    <textarea id="user-input" placeholder="Ask me anything..." rows="1"></textarea>
+                    <button id="send-btn" title="Send"><i class="fas fa-arrow-up"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="log-column">
+            <div class="log-panel">
+                <h2>Logs</h2>
+                <div class="log-content" id="log-content">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
